@@ -1,23 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import getNews from '../../api/apiNews';
 import NewsBanner from '../../components/NewsBanner/NewsBanner';
+import NewsList from '../../components/NewsList.jsx/NewList';
 import styles from './Main.module.css';
 
 const Main = () => {
+  const [news, setNews] = useState([]);
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const news = await getNews();
-        console.log(news);
+        const response = await getNews();
+        setNews(response.news);
       } catch (error) {
         console.log(error);
       }
     };
     fetchNews();
   }, []);
+
   return (
     <main className={styles.header}>
-      <NewsBanner />
+      {news.length > 0 ? <NewsBanner item={news[0]} /> : null}
+
+      <NewsList news={news} />
     </main>
   );
 };
