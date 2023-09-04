@@ -1,10 +1,10 @@
-import NewsItem from '../NewsItem/NewsItem';
-import styles from './NewsList.module.css';
+import NewsItem from "../NewsItem/NewsItem";
+import styles from "./styles.module.css";
 
 const NewsList = ({ news }) => {
   return (
-    <ul className={styles.wrapper}>
-      {news.map(item => {
+    <ul className={styles.list}>
+      {news.map((item) => {
         return <NewsItem key={item.id} item={item} />;
       })}
     </ul>

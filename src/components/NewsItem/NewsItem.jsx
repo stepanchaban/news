@@ -1,5 +1,5 @@
-import formatTimeAgo from '../../helpers/formatDate';
-import styles from './NewsItem.module.css';
+import { formatTimeAgo } from "../../helpers/formatTimeAgo";
+import styles from "./styles.module.css";
 
 const NewsItem = ({ item }) => {
   return (

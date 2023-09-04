@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import getNews from '../../api/apiNews';
+import { getNews } from '../../api/apiNews';
 import NewsBanner from '../../components/NewsBanner/NewsBanner';
 import NewsList from '../../components/NewsList.jsx/NewList';
-import styles from './Main.module.css';
+import styles from './styles.module.css';
 
 const Main = () => {
   const [news, setNews] = useState([]);
@@ -20,7 +20,7 @@ const Main = () => {
   }, []);
 
   return (
-    <main className={styles.header}>
+    <main className={styles.main}>
       {news.length > 0 ? <NewsBanner item={news[0]} /> : null}
 
       <NewsList news={news} />
