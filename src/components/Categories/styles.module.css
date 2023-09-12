@@ -11,6 +11,7 @@
 
 .item,
 .active {
+  cursor: pointer;
   display: flex;
   align-items: center;
   padding: 8px 16px;
@@ -23,7 +24,6 @@
   background-color: #e7e7ff;
   color: #6b4eff;
 }
-
 
 ::-webkit-scrollbar {
   display: none;
