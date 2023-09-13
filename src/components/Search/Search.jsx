@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 const Search = ({ keywords, setKeywords }) => {
   return (
@@ -6,9 +6,9 @@ const Search = ({ keywords, setKeywords }) => {
       <input
         type="text"
         value={keywords}
-        onChange={e => setKeywords(e.target.value)}
+        onChange={(e) => setKeywords(e.target.value)}
         className={styles.input}
-        placeholder="Search news"
+        placeholder="Javascript"
       />
     </div>
   );

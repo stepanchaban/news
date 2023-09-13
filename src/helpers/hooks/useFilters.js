@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-export const useFilters = initalFilters => {
-  const [filters, setFilters] = useState(initalFilters);
+export const useFilters = initialFilters => {
+  const [filters, setFilters] = useState(initialFilters);
 
   const changeFilter = (key, value) => {
     setFilters(prev => {
