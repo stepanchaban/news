@@ -1,27 +1,17 @@
-import withSkeleton from '../../helpers/hocs/withSkeleton';
-import { INews } from '../../interfaces';
-import NewsBanner from '../NewsBanner/NewsBanner';
+import { getLatestNews } from '../../api/apiNews';
+import { useFetch } from '../../helpers/hooks/useFetch';
+import { NewsApiResponse } from '../../interfaces';
+import BannersList from '../BannersList/BannersList';
 import styles from './styles.module.css';
 
-interface Props {
-  banners?: INews[] | null;
-}
+const LatestNews = () => {
+  const { data, isLoading } = useFetch<NewsApiResponse, null>(getLatestNews);
 
-const BannersList = ({ banners }: Props) => {
   return (
-    <ul className={styles.banners}>
-      {banners?.map((banner) => {
-        return <NewsBanner key={banner.id} item={banner} />;
-      })}
-    </ul>
+    <section className={styles.section}>
+      <BannersList banners={data && data.news} isLoading={isLoading} />
+    </section>
   );
 };
 
-const BannersListWithSkeleton = withSkeleton<Props>(
-  BannersList,
-  'banner',
-  10,
-  'row'
-);
-
-export default BannersListWithSkeleton;
+export default LatestNews;

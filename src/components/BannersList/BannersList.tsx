@@ -4,7 +4,7 @@ import NewsBanner from '../NewsBanner/NewsBanner';
 import styles from './styles.module.css';
 
 interface Props {
-  banners?: INews[];
+  banners?: INews[] | null;
 }
 
 const BannersList = ({ banners }: Props) => {
@@ -17,6 +17,11 @@ const BannersList = ({ banners }: Props) => {
   );
 };
 
-const BannerListWithSkeleton = withSkeleton(BannersList, 'banner', 10, 'row');
+const BannersListWithSkeleton = withSkeleton<Props>(
+  BannersList,
+  'banner',
+  10,
+  'row'
+);
 
-export default BannerListWithSkeleton;
+export default BannersListWithSkeleton;
