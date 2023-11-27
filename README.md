@@ -1,1 +1,2 @@
-News app on Vite 
+# News app on Vite 
+## React + TypeScript
