@@ -1,1 +1,1 @@
-News app on Vite 2
+News app on Vite 
